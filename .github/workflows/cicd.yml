@@ -29,3 +29,14 @@ jobs:
         node-version: 16
     - run: npm ci
     - run: npm test
+    - uses: appleboy/ssh-action@v0.1.8
+      with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            cd /home/yc-user/app
+            docker compose down
+            docker compose up -d --build
+
