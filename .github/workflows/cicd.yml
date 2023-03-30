@@ -8,7 +8,7 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - run: npm start &
+      - run: npm start 
       - run: npm test
       - uses: appleboy/ssh-action@v0.1.8
         with:
